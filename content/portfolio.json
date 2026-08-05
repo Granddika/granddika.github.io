@@ -35,10 +35,16 @@
     {
       "size": "standard",
       "meta_en": "AI photo",
-      "media": "/assets/uploads/img_6498.jpeg",
+      "media": "/assets/uploads/soyuz-0418f4e5-0ac3-4de6-9e21-fc950be58ba7.jpg",
       "title_ru": "Портрет в неоне",
       "published": true,
       "kind_ru": "AI-фото",
+      "album": [
+        {
+          "media_type": "image",
+          "media": "/assets/uploads/img_6480.jpeg"
+        }
+      ],
       "title_en": "Neon portrait",
       "kind_en": "AI photo",
       "media_type": "image",
