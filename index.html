@@ -138,14 +138,24 @@
   .album-modal.open{display:flex}
   .album-dialog{position:relative;width:min(1100px,100%);height:min(820px,calc(100vh - 48px));display:grid;grid-template-rows:minmax(0,1fr) auto;overflow:hidden;border-radius:24px;
     background:#0b0608;border:1px solid var(--glass-line);box-shadow:0 30px 100px rgba(0,0,0,.75)}
+  .album-folder{min-height:0;overflow:auto;padding:76px 24px 24px;background:radial-gradient(circle at 50% 0,rgba(255,61,139,.11),transparent 45%),#070405}
+  .album-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:14px}
+  .album-thumb{position:relative;aspect-ratio:4/3;overflow:hidden;padding:0;border-radius:16px;cursor:pointer;color:var(--ink);background:#12090c;border:1px solid var(--glass-line);transition:transform .2s,border-color .2s}
+  .album-thumb:hover,.album-thumb:focus-visible{transform:translateY(-3px);border-color:var(--pink);outline:none}
+  .album-thumb img,.album-thumb video{display:block;width:100%;height:100%;object-fit:cover}
+  .album-thumb-index,.album-thumb-play{position:absolute;z-index:2;display:flex;align-items:center;justify-content:center;background:rgba(10,5,7,.68);border:1px solid var(--glass-line);backdrop-filter:blur(10px)}
+  .album-thumb-index{right:10px;bottom:10px;min-width:30px;height:28px;padding:0 9px;border-radius:100px;font-size:12px;font-weight:700}
+  .album-thumb-play{inset:50% auto auto 50%;width:42px;height:42px;margin:-21px 0 0 -21px;border-radius:50%;font-size:14px}
   .album-stage{position:relative;min-height:0;display:flex;align-items:center;justify-content:center;background:#050304;overflow:hidden}
+  .album-stage[hidden],.album-folder[hidden]{display:none}
   .album-stage img,.album-stage video{display:block;max-width:100%;max-height:100%;width:100%;height:100%;object-fit:contain}
-  .album-close,.album-nav{position:absolute;z-index:3;display:flex;align-items:center;justify-content:center;color:var(--ink);cursor:pointer;border:1px solid var(--glass-line);
+  .album-close,.album-nav,.album-back{position:absolute;z-index:3;display:flex;align-items:center;justify-content:center;color:var(--ink);cursor:pointer;border:1px solid var(--glass-line);
     background:rgba(10,5,7,.7);backdrop-filter:blur(12px);transition:background .2s,transform .2s}
-  .album-close{top:16px;right:16px;width:44px;height:44px;border-radius:50%;font-size:25px}
+  .album-close{z-index:5;top:16px;right:16px;width:44px;height:44px;border-radius:50%;font-size:25px}
+  .album-back{top:16px;left:16px;height:44px;padding:0 16px;border-radius:100px;font-family:'Onest';font-size:13px;font-weight:700}
   .album-nav{top:50%;width:48px;height:64px;margin-top:-32px;border-radius:16px;font-size:28px}
   .album-prev{left:16px}.album-next{right:16px}
-  .album-close:hover,.album-nav:hover{background:rgba(255,61,139,.32);transform:scale(1.04)}
+  .album-close:hover,.album-nav:hover,.album-back:hover{background:rgba(255,61,139,.32);transform:scale(1.04)}
   .album-nav[hidden]{display:none}
   .album-info{display:grid;grid-template-columns:1fr auto;gap:12px 24px;align-items:end;padding:20px 24px;background:linear-gradient(135deg,rgba(255,255,255,.045),rgba(255,255,255,.015))}
   .album-info h3{font-family:'Unbounded';font-size:clamp(18px,2.5vw,28px);line-height:1.2}
@@ -242,6 +252,10 @@
     .album-nav{width:42px;height:56px;border-radius:14px}
     .album-prev{left:10px}.album-next{right:10px}
     .album-close{top:12px;right:12px}
+    .album-back{top:12px;left:12px}
+    .album-folder{padding:70px 12px 16px}
+    .album-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+    .album-thumb{border-radius:12px;aspect-ratio:1/1}
   }
   @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
 </style>
@@ -302,8 +316,10 @@
 
 <div class="album-modal" id="albumModal" role="dialog" aria-modal="true" aria-labelledby="albumTitle" aria-hidden="true">
   <div class="album-dialog">
-    <div class="album-stage" id="albumStage">
-      <button class="album-close" id="albumClose" type="button" aria-label="Закрыть альбом">&times;</button>
+    <button class="album-close" id="albumClose" type="button" aria-label="Закрыть альбом">&times;</button>
+    <div class="album-folder" id="albumFolder"><div class="album-grid" id="albumGrid"></div></div>
+    <div class="album-stage" id="albumStage" hidden>
+      <button class="album-back" id="albumBack" type="button">&#8592; К альбому</button>
       <button class="album-nav album-prev" id="albumPrev" type="button" aria-label="Предыдущий файл">&#8249;</button>
       <button class="album-nav album-next" id="albumNext" type="button" aria-label="Следующий файл">&#8250;</button>
     </div>
@@ -494,10 +510,14 @@ let portfolioProjects=[];
 let activeAlbumProject=null;
 let activeAlbumIndex=0;
 let albumReturnFocus=null;
+let activeAlbumView='folder';
 
 const albumModal=document.getElementById('albumModal');
+const albumFolder=document.getElementById('albumFolder');
+const albumGrid=document.getElementById('albumGrid');
 const albumStage=document.getElementById('albumStage');
 const albumClose=document.getElementById('albumClose');
+const albumBack=document.getElementById('albumBack');
 const albumPrev=document.getElementById('albumPrev');
 const albumNext=document.getElementById('albumNext');
 const albumTitle=document.getElementById('albumTitle');
@@ -510,11 +530,51 @@ function getProjectSlides(project){
   return cover.media?[cover,...extra]:extra;
 }
 
+function getAlbumCountText(count){
+  if(currentLang==='en')return `${count} ${count===1?'item':'items'}`;
+  const lastTwo=count%100,last=count%10;
+  const word=lastTwo>=11&&lastTwo<=14?'файлов':last===1?'файл':last>=2&&last<=4?'файла':'файлов';
+  return `${count} ${word}`;
+}
+
+function setAlbumProjectInfo(){
+  albumTitle.textContent=currentLang==='en'?(activeAlbumProject.title_en||activeAlbumProject.title_ru):(activeAlbumProject.title_ru||activeAlbumProject.title_en);
+  albumMeta.textContent=currentLang==='en'?(activeAlbumProject.meta_en||activeAlbumProject.meta_ru||''):(activeAlbumProject.meta_ru||activeAlbumProject.meta_en||'');
+}
+
+function renderAlbumFolder(){
+  if(!activeAlbumProject)return;
+  const slides=getProjectSlides(activeAlbumProject);
+  if(!slides.length)return closeAlbum();
+  activeAlbumView='folder';
+  albumStage.querySelectorAll('video').forEach(video=>video.pause());
+  albumStage.querySelectorAll('.album-media').forEach(node=>node.remove());
+  albumStage.hidden=true;albumFolder.hidden=false;albumGrid.replaceChildren();
+  slides.forEach((slide,index)=>{
+    const thumb=document.createElement('button');thumb.type='button';thumb.className='album-thumb';
+    const label=currentLang==='en'?`Open item ${index+1}`:`Открыть файл ${index+1}`;thumb.setAttribute('aria-label',label);
+    let preview;
+    if(slide.media_type==='video'){
+      preview=document.createElement('video');preview.muted=true;preview.playsInline=true;preview.preload='metadata';
+      const play=document.createElement('span');play.className='album-thumb-play';play.textContent='▶';thumb.appendChild(play);
+    }else{
+      preview=document.createElement('img');preview.loading='lazy';
+    }
+    preview.src=slide.media;
+    const alt=currentLang==='en'?(slide.alt_en||activeAlbumProject.alt_en||activeAlbumProject.title_en||''):(slide.alt_ru||activeAlbumProject.alt_ru||activeAlbumProject.title_ru||'');
+    preview.setAttribute('aria-label',alt);if(preview.tagName==='IMG')preview.alt=alt;
+    const number=document.createElement('span');number.className='album-thumb-index';number.textContent=index+1;
+    thumb.prepend(preview);thumb.appendChild(number);thumb.addEventListener('click',()=>{activeAlbumIndex=index;renderAlbumSlide()});albumGrid.appendChild(thumb);
+  });
+  setAlbumProjectInfo();albumCounter.textContent=getAlbumCountText(slides.length);
+}
+
 function renderAlbumSlide(){
   if(!activeAlbumProject)return;
   const slides=getProjectSlides(activeAlbumProject);
   if(!slides.length)return closeAlbum();
   activeAlbumIndex=(activeAlbumIndex+slides.length)%slides.length;
+  activeAlbumView='slide';albumFolder.hidden=true;albumStage.hidden=false;
   const slide=slides[activeAlbumIndex];
   albumStage.querySelectorAll('.album-media').forEach(node=>node.remove());
   let media;
@@ -527,17 +587,17 @@ function renderAlbumSlide(){
   const alt=currentLang==='en'?(slide.alt_en||activeAlbumProject.alt_en||activeAlbumProject.title_en||''):(slide.alt_ru||activeAlbumProject.alt_ru||activeAlbumProject.title_ru||'');
   media.setAttribute('aria-label',alt);if(media.tagName==='IMG')media.alt=alt;
   albumStage.prepend(media);
-  albumTitle.textContent=currentLang==='en'?(activeAlbumProject.title_en||activeAlbumProject.title_ru):(activeAlbumProject.title_ru||activeAlbumProject.title_en);
-  albumMeta.textContent=currentLang==='en'?(activeAlbumProject.meta_en||activeAlbumProject.meta_ru||''):(activeAlbumProject.meta_ru||activeAlbumProject.meta_en||'');
+  setAlbumProjectInfo();
   albumCounter.textContent=`${activeAlbumIndex+1} / ${slides.length}`;
   const single=slides.length<2;albumPrev.hidden=single;albumNext.hidden=single;
+  albumBack.textContent=currentLang==='en'?'← Back to album':'← К альбому';albumBack.focus();
 }
 
 function openAlbum(project,trigger){
   if(!getProjectSlides(project).length)return;
   activeAlbumProject=project;activeAlbumIndex=0;albumReturnFocus=trigger;
   albumModal.classList.add('open');albumModal.setAttribute('aria-hidden','false');document.body.classList.add('album-open');
-  renderAlbumSlide();albumClose.focus();
+  renderAlbumFolder();albumClose.focus();
 }
 
 function closeAlbum(){
@@ -547,16 +607,17 @@ function closeAlbum(){
   activeAlbumProject=null;if(albumReturnFocus)albumReturnFocus.focus();albumReturnFocus=null;
 }
 
-function moveAlbum(direction){activeAlbumIndex+=direction;renderAlbumSlide()}
+function moveAlbum(direction){if(activeAlbumView!=='slide')return;activeAlbumIndex+=direction;renderAlbumSlide()}
 albumClose.addEventListener('click',closeAlbum);
+albumBack.addEventListener('click',()=>{renderAlbumFolder();const current=albumGrid.children[activeAlbumIndex];if(current)current.focus()});
 albumPrev.addEventListener('click',()=>moveAlbum(-1));
 albumNext.addEventListener('click',()=>moveAlbum(1));
 albumModal.addEventListener('click',event=>{if(event.target===albumModal)closeAlbum()});
 document.addEventListener('keydown',event=>{
   if(!albumModal.classList.contains('open'))return;
-  if(event.key==='Escape')closeAlbum();
-  if(event.key==='ArrowLeft')moveAlbum(-1);
-  if(event.key==='ArrowRight')moveAlbum(1);
+  if(event.key==='Escape'){activeAlbumView==='slide'?renderAlbumFolder():closeAlbum();return}
+  if(activeAlbumView==='slide'&&event.key==='ArrowLeft')moveAlbum(-1);
+  if(activeAlbumView==='slide'&&event.key==='ArrowRight')moveAlbum(1);
 });
 
 function applyPortfolioFilter(){
