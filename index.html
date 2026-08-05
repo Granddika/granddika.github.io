@@ -199,6 +199,11 @@
   input:focus,select:focus,textarea:focus{outline:none;border-color:var(--pink);box-shadow:0 0 0 3px rgba(255,61,139,0.16)}
   select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23A78D93' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center}
   textarea{resize:vertical;min-height:90px}
+  .privacy-consent{display:grid;grid-template-columns:20px 1fr;gap:10px;align-items:start;margin:0;padding:12px 14px;border-radius:13px;border:1px solid transparent;cursor:pointer;transition:border-color .2s,background .2s}
+  .privacy-consent input{appearance:auto;width:18px;height:18px;margin:2px 0 0;padding:0;accent-color:var(--pink);box-shadow:none;cursor:pointer}
+  .privacy-consent span{font-size:12.5px;line-height:1.45;color:var(--muted)}
+  .privacy-consent a{color:var(--pink);text-underline-offset:3px}
+  .privacy-consent.invalid{border-color:var(--red-soft);background:rgba(255,33,64,.08)}
   .submit{font-family:'Onest';font-weight:600;font-size:16px;color:#0a0506;cursor:pointer;border:none;margin-top:4px;padding:16px;border-radius:14px;
     background:linear-gradient(135deg,var(--pink),var(--red));box-shadow:0 0 34px -4px rgba(255,45,120,0.5);transition:transform .2s}
   .submit:hover{transform:translateY(-2px)}
@@ -224,6 +229,9 @@
     background:rgba(255,255,255,0.04);border:1px solid var(--glass-line);transition:all .2s;font-size:16px}
   .socials a:hover{border-color:var(--pink);transform:translateY(-3px);color:var(--pink)}
   .copy{width:100%;text-align:center;color:#5A4F53;font-size:13px;margin-top:30px}
+  .privacy-footer{width:100%;text-align:center;margin-top:12px}
+  .privacy-footer a{font-size:12.5px;color:var(--muted);text-underline-offset:3px;transition:color .2s}
+  .privacy-footer a:hover{color:var(--pink)}
 
   @media(max-width:860px){
     .bento{grid-template-columns:repeat(2,1fr)}
@@ -399,6 +407,10 @@
         <div><label data-t="c_brief">О проекте</label>
           <textarea id="f_brief" data-tp="c_brief_ph" placeholder="Пара предложений: бренд или артист, задача, сроки, бюджет"></textarea>
         </div>
+        <label class="privacy-consent" id="consentWrap">
+          <input type="checkbox" id="f_consent">
+          <span data-t="c_consent">Я даю согласие на обработку персональных данных и принимаю <a href="/privacy.html" target="_blank" rel="noopener">Политику конфиденциальности</a>, включая передачу заявки через Netlify в Telegram.</span>
+        </label>
         <button type="submit" class="submit" data-t="c_submit">Отправить заявку</button>
         <input type="text" id="f_website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0" aria-hidden="true">
       </form>
@@ -429,6 +441,7 @@
     </div>
   </div>
   <div class="copy" data-t="foot_copy">&copy; 2026 Granddika AI &middot; Atmospheric AI Cinema</div>
+  <div class="privacy-footer"><a href="/privacy.html" data-t="privacy_link">Политика конфиденциальности</a></div>
 </div></footer>
 
 <script>
@@ -466,8 +479,9 @@ nav_work:"Работы",nav_serv:"Услуги",nav_about:"Обо мне",nav_co
   c_name:"Имя",c_name_ph:"Как тебя зовут",c_contact:"Контакт",c_contact_ph:"Telegram, почта или телефон",
   c_type:"Что нужно",c_opt0:"Выбери формат",c_opt1:"AI-упаковка бренда / продукта",c_opt2:"AI-промо-ролик",c_opt3:"Нейрофото / визуал",c_opt4:"Пока не знаю — нужна консультация",
   c_brief:"О проекте",c_brief_ph:"Пара предложений: бренд или артист, задача, сроки, бюджет",c_submit:"Отправить заявку",
+  c_consent:'Я даю согласие на обработку персональных данных и принимаю <a href="/privacy.html" target="_blank" rel="noopener">Политику конфиденциальности</a>, включая передачу заявки через Netlify в Telegram.',
   c_or:"— или —",c_tg:"Написать напрямую в Telegram",ok_h:"Заявка улетела",ok_p:"Спасибо! Свяжусь с тобой по указанному контакту в ближайшее время.",
-  foot_copy:"&copy; 2026 Granddika AI &middot; Атмосферное AI-кино"},
+  foot_copy:"&copy; 2026 Granddika AI &middot; Атмосферное AI-кино",privacy_link:"Политика конфиденциальности"},
  en:{
   k_mood3:"Mood",k_photo3:"AI photo",
   w1t:"Empty street",w1m:"Red Impulse · frame 1",w2t:"Arrival",w2m:"Red Impulse · frame 2",
@@ -501,8 +515,9 @@ nav_work:"Work",nav_serv:"Services",nav_about:"About",nav_contact:"Contact",nav_
   c_name:"Name",c_name_ph:"Your name",c_contact:"Contact",c_contact_ph:"Telegram, email or phone",
   c_type:"What you need",c_opt0:"Choose format",c_opt1:"AI brand / product packaging",c_opt2:"AI promo video",c_opt3:"AI photo / visuals",c_opt4:"Not sure yet — need a consult",
   c_brief:"About the project",c_brief_ph:"A couple of lines: brand or artist, goal, timeline, budget",c_submit:"Send request",
+  c_consent:'I consent to personal data processing and accept the <a href="/privacy.html" target="_blank" rel="noopener">Privacy Policy</a>, including sending my request through Netlify to Telegram.',
   c_or:"— or —",c_tg:"Message me directly on Telegram",ok_h:"Request sent",ok_p:"Thank you! I'll get back to you at the contact you provided very soon.",
-  foot_copy:"&copy; 2026 Granddika AI &middot; Atmospheric AI Cinema"}
+  foot_copy:"&copy; 2026 Granddika AI &middot; Atmospheric AI Cinema",privacy_link:"Privacy Policy"}
 };
 let currentLang='ru';
 let activeFilter='all';
@@ -712,7 +727,9 @@ pb.addEventListener('click',()=>{v.play();pb.classList.remove('show');});
 document.getElementById('leadForm').addEventListener('submit',async function(e){
   e.preventDefault();
   const n=document.getElementById('f_name').value.trim(), c=document.getElementById('f_contact').value.trim();
-  if(!n||!c){[['f_name',n],['f_contact',c]].forEach(([id,val])=>document.getElementById(id).style.borderColor=val?'':'#FF5C8A');return;}
+  const consent=document.getElementById('f_consent').checked;
+  document.getElementById('consentWrap').classList.toggle('invalid',!consent);
+  if(!n||!c||!consent){[['f_name',n],['f_contact',c]].forEach(([id,val])=>document.getElementById(id).style.borderColor=val?'':'#FF5C8A');return;}
   const btn=document.querySelector('#leadForm .submit');
   const lang=document.documentElement.lang==='en'?'en':'ru';
   const sending=lang==='en'?'Sending…':'Отправляю…';
@@ -722,6 +739,8 @@ document.getElementById('leadForm').addEventListener('submit',async function(e){
     name:n, contact:c,
     type:document.getElementById('f_type').value,
     brief:document.getElementById('f_brief').value.trim(),
+    consent:true,
+    privacy_version:'2026-08-05',
     website:document.getElementById('f_website').value // honeypot
   };
   try{
@@ -735,6 +754,7 @@ document.getElementById('leadForm').addEventListener('submit',async function(e){
   }
 });
 ['f_name','f_contact'].forEach(id=>document.getElementById(id).addEventListener('input',e=>e.target.style.borderColor=''));
+document.getElementById('f_consent').addEventListener('change',e=>document.getElementById('consentWrap').classList.toggle('invalid',!e.target.checked));
 </script>
 
 
