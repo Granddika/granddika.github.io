@@ -47,16 +47,24 @@
         {
           "media_type": "image",
           "media": "/assets/uploads/img_6496.png"
+        },
+        {
+          "media_type": "image",
+          "media": "/assets/uploads/img_6486.jpeg"
+        },
+        {
+          "media_type": "image",
+          "media": "/assets/uploads/img_6482.jpeg"
         }
       ],
       "title_en": "Neon portrait",
       "kind_en": "AI photo",
       "media_type": "image",
-      "alt_ru": "Неоновый портрет",
-      "id": "neon-portrait",
+      "alt_ru": "Нейрофотосесси",
+      "id": "Neurophoto",
       "meta_ru": "нейрофото",
       "category": "photo",
-      "alt_en": "Neon portrait"
+      "alt_en": "Neurophoto"
     },
     {
       "size": "wide",
