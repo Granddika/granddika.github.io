@@ -48,6 +48,25 @@ collections:
                   - { label: Изображение, value: image }
                   - { label: Видео, value: video }
                 default: image
+              - label: Альбом — дополнительные фото и видео
+                name: album
+                widget: list
+                required: false
+                collapsed: true
+                label_singular: Файл альбома
+                summary: "{{fields.media}}"
+                hint: "Необязательно. Обложка выше уже будет первым кадром альбома. Здесь добавьте второй и следующие файлы."
+                fields:
+                  - { label: Фото или видео, name: media, widget: file, media_library: { config: { multiple: false } } }
+                  - label: Тип файла
+                    name: media_type
+                    widget: select
+                    options:
+                      - { label: Изображение, value: image }
+                      - { label: Видео, value: video }
+                    default: image
+                  - { label: Описание — RU, name: alt_ru, widget: string, required: false }
+                  - { label: Description — EN, name: alt_en, widget: string, required: false }
               - label: Размер карточки
                 name: size
                 widget: select
