@@ -1,0 +1,58 @@
+backend:
+  name: git-gateway
+  branch: main
+
+locale: ru
+media_folder: assets/uploads
+public_folder: /assets/uploads
+
+collections:
+  - name: portfolio
+    label: Портфолио
+    files:
+      - name: projects
+        label: Работы
+        file: content/portfolio.json
+        format: json
+        fields:
+          - label: Работы
+            name: projects
+            widget: list
+            label_singular: Работа
+            summary: "{{fields.title_ru}} — {{fields.category}}"
+            fields:
+              - { label: Идентификатор, name: id, widget: string, hint: "Латинскими буквами без пробелов, например perfume-video" }
+              - { label: Показывать на сайте, name: published, widget: boolean, default: true }
+              - label: Категория
+                name: category
+                widget: select
+                options:
+                  - { label: Промо, value: promo }
+                  - { label: Атмосфера, value: mood }
+                  - { label: AI-фото, value: photo }
+                  - { label: Миры, value: worlds }
+                  - { label: Упаковка, value: brand }
+              - { label: Название категории — RU, name: kind_ru, widget: string }
+              - { label: Category name — EN, name: kind_en, widget: string }
+              - { label: Название работы — RU, name: title_ru, widget: string }
+              - { label: Project title — EN, name: title_en, widget: string }
+              - { label: Подпись — RU, name: meta_ru, widget: string, required: false }
+              - { label: Caption — EN, name: meta_en, widget: string, required: false }
+              - { label: Описание изображения — RU, name: alt_ru, widget: string, required: false }
+              - { label: Image description — EN, name: alt_en, widget: string, required: false }
+              - { label: Фото или видео, name: media, widget: file, media_library: { config: { multiple: false } } }
+              - label: Тип файла
+                name: media_type
+                widget: select
+                options:
+                  - { label: Изображение, value: image }
+                  - { label: Видео, value: video }
+                default: image
+              - label: Размер карточки
+                name: size
+                widget: select
+                options:
+                  - { label: Обычная, value: standard }
+                  - { label: Широкая, value: wide }
+                  - { label: Большая, value: large }
+                default: standard
