@@ -12,11 +12,13 @@ exports.handler = async (event) => {
     const contact = (data.contact || "").toString().slice(0, 200).trim();
     const type = (data.type || "").toString().slice(0, 200).trim();
     const brief = (data.brief || "").toString().slice(0, 2000).trim();
+    const consent = data.consent === true;
+    const privacyVersion = (data.privacy_version || "").toString().slice(0, 40).trim();
 
     // simple honeypot check (bots fill hidden field)
     if (data.website) return { statusCode: 200, headers: CORS, body: JSON.stringify({ ok: true }) };
 
-    if (!name || !contact) return { statusCode: 400, headers: CORS, body: JSON.stringify({ error: "name & contact required" }) };
+    if (!name || !contact || !consent) return { statusCode: 400, headers: CORS, body: JSON.stringify({ error: "name, contact & consent required" }) };
 
     const TOKEN = process.env.TELEGRAM_TOKEN;
     const CHAT_ID = process.env.TELEGRAM_CHAT_ID;
@@ -28,7 +30,10 @@ exports.handler = async (event) => {
       "👤 <b>Имя:</b> " + esc(name) + "\n" +
       "📞 <b>Контакт:</b> " + esc(contact) + "\n" +
       (type ? "🎯 <b>Формат:</b> " + esc(type) + "\n" : "") +
-      (brief ? "📝 <b>О проекте:</b>\n" + esc(brief) : "");
+      (brief ? "📝 <b>О проекте:</b>\n" + esc(brief) + "\n\n" : "\n") +
+      "✅ <b>Согласие на обработку ПД:</b> да\n" +
+      "📄 <b>Версия политики:</b> " + esc(privacyVersion || "не указана") + "\n" +
+      "🕒 <b>Получено:</b> " + esc(new Date().toISOString());
 
     const resp = await fetch("https://api.telegram.org/bot" + TOKEN + "/sendMessage", {
       method: "POST",
