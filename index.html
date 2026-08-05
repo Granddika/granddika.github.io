@@ -117,6 +117,8 @@
     backdrop-filter:blur(10px);background:rgba(255,255,255,0.08);border:1px solid var(--glass-line);font-weight:600}
   .tile .play{position:absolute;top:14px;right:14px;z-index:3;width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;
     backdrop-filter:blur(10px);background:rgba(255,61,139,0.25);border:1px solid rgba(255,61,139,0.5);font-size:12px}
+  .tile .album-count{position:absolute;top:14px;right:14px;z-index:3;min-width:38px;height:36px;padding:0 11px;border-radius:100px;display:flex;align-items:center;justify-content:center;gap:6px;
+    backdrop-filter:blur(10px);background:rgba(10,5,7,.58);border:1px solid var(--glass-line);font-size:12px;font-weight:700}
   .tile h3{font-family:'Onest';font-weight:600;font-size:17px;margin-bottom:3px}
   .tile .meta{font-size:12.5px;color:var(--muted)}
   .span2{grid-column:span 2}.row2{grid-row:span 2}
@@ -129,6 +131,26 @@
   .m6{background:radial-gradient(at 30% 30%,var(--magenta),transparent 46%),radial-gradient(at 72% 80%,var(--red),transparent 50%),linear-gradient(135deg,#160610,#0A0507)}
   .m7{background:radial-gradient(at 60% 40%,var(--pink),transparent 50%),radial-gradient(at 15% 75%,var(--red),transparent 44%),linear-gradient(135deg,#1A0610,#0A0507)}
   .m8{background:radial-gradient(at 40% 60%,var(--red),transparent 48%),radial-gradient(at 82% 30%,var(--pink),transparent 46%),linear-gradient(135deg,#140609,#0A0507)}
+
+  /* PORTFOLIO ALBUM */
+  body.album-open{overflow:hidden}
+  .album-modal{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;padding:24px;background:rgba(5,2,3,.9);backdrop-filter:blur(18px)}
+  .album-modal.open{display:flex}
+  .album-dialog{position:relative;width:min(1100px,100%);height:min(820px,calc(100vh - 48px));display:grid;grid-template-rows:minmax(0,1fr) auto;overflow:hidden;border-radius:24px;
+    background:#0b0608;border:1px solid var(--glass-line);box-shadow:0 30px 100px rgba(0,0,0,.75)}
+  .album-stage{position:relative;min-height:0;display:flex;align-items:center;justify-content:center;background:#050304;overflow:hidden}
+  .album-stage img,.album-stage video{display:block;max-width:100%;max-height:100%;width:100%;height:100%;object-fit:contain}
+  .album-close,.album-nav{position:absolute;z-index:3;display:flex;align-items:center;justify-content:center;color:var(--ink);cursor:pointer;border:1px solid var(--glass-line);
+    background:rgba(10,5,7,.7);backdrop-filter:blur(12px);transition:background .2s,transform .2s}
+  .album-close{top:16px;right:16px;width:44px;height:44px;border-radius:50%;font-size:25px}
+  .album-nav{top:50%;width:48px;height:64px;margin-top:-32px;border-radius:16px;font-size:28px}
+  .album-prev{left:16px}.album-next{right:16px}
+  .album-close:hover,.album-nav:hover{background:rgba(255,61,139,.32);transform:scale(1.04)}
+  .album-nav[hidden]{display:none}
+  .album-info{display:grid;grid-template-columns:1fr auto;gap:12px 24px;align-items:end;padding:20px 24px;background:linear-gradient(135deg,rgba(255,255,255,.045),rgba(255,255,255,.015))}
+  .album-info h3{font-family:'Unbounded';font-size:clamp(18px,2.5vw,28px);line-height:1.2}
+  .album-meta{color:var(--muted);font-size:14px;margin-top:6px}
+  .album-counter{color:var(--muted);font-size:13px;white-space:nowrap}
 
   /* SERVICES */
   .services{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
@@ -214,6 +236,12 @@
     .nav-right{gap:8px;margin-left:auto}
     .lang button{padding:6px 11px}
     .nav-cta{display:none}
+    .album-modal{padding:0}
+    .album-dialog{width:100%;height:100%;border-radius:0;border:0}
+    .album-info{padding:17px 18px}
+    .album-nav{width:42px;height:56px;border-radius:14px}
+    .album-prev{left:10px}.album-next{right:10px}
+    .album-close{top:12px;right:12px}
   }
   @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
 </style>
@@ -271,6 +299,20 @@
   <div class="bento" id="portfolioGrid" aria-live="polite"></div>
   <p class="svc-note" data-t="work_note" style="margin-top:22px">Серия «Красный импульс» — от концепции до кадра. Больше работ — скоро.</p>
 </div></section>
+
+<div class="album-modal" id="albumModal" role="dialog" aria-modal="true" aria-labelledby="albumTitle" aria-hidden="true">
+  <div class="album-dialog">
+    <div class="album-stage" id="albumStage">
+      <button class="album-close" id="albumClose" type="button" aria-label="Закрыть альбом">&times;</button>
+      <button class="album-nav album-prev" id="albumPrev" type="button" aria-label="Предыдущий файл">&#8249;</button>
+      <button class="album-nav album-next" id="albumNext" type="button" aria-label="Следующий файл">&#8250;</button>
+    </div>
+    <div class="album-info">
+      <div><h3 id="albumTitle"></h3><div class="album-meta" id="albumMeta"></div></div>
+      <div class="album-counter" id="albumCounter"></div>
+    </div>
+  </div>
+</div>
 
 <!-- SERVICES -->
 <section id="services"><div class="wrap">
@@ -449,6 +491,73 @@ nav_work:"Work",nav_serv:"Services",nav_about:"About",nav_contact:"Contact",nav_
 let currentLang='ru';
 let activeFilter='all';
 let portfolioProjects=[];
+let activeAlbumProject=null;
+let activeAlbumIndex=0;
+let albumReturnFocus=null;
+
+const albumModal=document.getElementById('albumModal');
+const albumStage=document.getElementById('albumStage');
+const albumClose=document.getElementById('albumClose');
+const albumPrev=document.getElementById('albumPrev');
+const albumNext=document.getElementById('albumNext');
+const albumTitle=document.getElementById('albumTitle');
+const albumMeta=document.getElementById('albumMeta');
+const albumCounter=document.getElementById('albumCounter');
+
+function getProjectSlides(project){
+  const cover={media:project.media,media_type:project.media_type||'image',alt_ru:project.alt_ru,alt_en:project.alt_en};
+  const extra=Array.isArray(project.album)?project.album.filter(item=>item&&item.media):[];
+  return cover.media?[cover,...extra]:extra;
+}
+
+function renderAlbumSlide(){
+  if(!activeAlbumProject)return;
+  const slides=getProjectSlides(activeAlbumProject);
+  if(!slides.length)return closeAlbum();
+  activeAlbumIndex=(activeAlbumIndex+slides.length)%slides.length;
+  const slide=slides[activeAlbumIndex];
+  albumStage.querySelectorAll('.album-media').forEach(node=>node.remove());
+  let media;
+  if(slide.media_type==='video'){
+    media=document.createElement('video');media.controls=true;media.autoplay=true;media.playsInline=true;
+  }else{
+    media=document.createElement('img');
+  }
+  media.className='album-media';media.src=slide.media;
+  const alt=currentLang==='en'?(slide.alt_en||activeAlbumProject.alt_en||activeAlbumProject.title_en||''):(slide.alt_ru||activeAlbumProject.alt_ru||activeAlbumProject.title_ru||'');
+  media.setAttribute('aria-label',alt);if(media.tagName==='IMG')media.alt=alt;
+  albumStage.prepend(media);
+  albumTitle.textContent=currentLang==='en'?(activeAlbumProject.title_en||activeAlbumProject.title_ru):(activeAlbumProject.title_ru||activeAlbumProject.title_en);
+  albumMeta.textContent=currentLang==='en'?(activeAlbumProject.meta_en||activeAlbumProject.meta_ru||''):(activeAlbumProject.meta_ru||activeAlbumProject.meta_en||'');
+  albumCounter.textContent=`${activeAlbumIndex+1} / ${slides.length}`;
+  const single=slides.length<2;albumPrev.hidden=single;albumNext.hidden=single;
+}
+
+function openAlbum(project,trigger){
+  if(!getProjectSlides(project).length)return;
+  activeAlbumProject=project;activeAlbumIndex=0;albumReturnFocus=trigger;
+  albumModal.classList.add('open');albumModal.setAttribute('aria-hidden','false');document.body.classList.add('album-open');
+  renderAlbumSlide();albumClose.focus();
+}
+
+function closeAlbum(){
+  if(!albumModal.classList.contains('open'))return;
+  albumStage.querySelectorAll('video').forEach(video=>video.pause());
+  albumModal.classList.remove('open');albumModal.setAttribute('aria-hidden','true');document.body.classList.remove('album-open');
+  activeAlbumProject=null;if(albumReturnFocus)albumReturnFocus.focus();albumReturnFocus=null;
+}
+
+function moveAlbum(direction){activeAlbumIndex+=direction;renderAlbumSlide()}
+albumClose.addEventListener('click',closeAlbum);
+albumPrev.addEventListener('click',()=>moveAlbum(-1));
+albumNext.addEventListener('click',()=>moveAlbum(1));
+albumModal.addEventListener('click',event=>{if(event.target===albumModal)closeAlbum()});
+document.addEventListener('keydown',event=>{
+  if(!albumModal.classList.contains('open'))return;
+  if(event.key==='Escape')closeAlbum();
+  if(event.key==='ArrowLeft')moveAlbum(-1);
+  if(event.key==='ArrowRight')moveAlbum(1);
+});
 
 function applyPortfolioFilter(){
   document.querySelectorAll('#portfolioGrid .tile').forEach(tile=>{
@@ -464,12 +573,16 @@ function renderProjects(){
     const tile=document.createElement('article');
     tile.className='tile'+(project.size==='wide'?' span2':project.size==='large'?' span2 row2':'');
     tile.dataset.cat=project.category||'photo';
+    tile.tabIndex=0;tile.setAttribute('role','button');
+    const openLabel=currentLang==='en'?'Open project album':'Открыть альбом проекта';
+    tile.setAttribute('aria-label',`${openLabel}: ${currentLang==='en'?(project.title_en||project.title_ru):(project.title_ru||project.title_en)}`);
+    const slideCount=getProjectSlides(project).length;
 
     let media;
     if(project.media_type==='video'){
       media=document.createElement('video');
       media.autoplay=true;media.muted=true;media.loop=true;media.playsInline=true;media.preload='metadata';
-      const play=document.createElement('span');play.className='play';play.textContent='▶';tile.appendChild(play);
+      if(slideCount<2){const play=document.createElement('span');play.className='play';play.textContent='▶';tile.appendChild(play)}
     }else{
       media=document.createElement('img');media.loading='lazy';
     }
@@ -484,7 +597,13 @@ function renderProjects(){
     const overlay=document.createElement('div');overlay.className='ov';
     const title=document.createElement('h3');title.textContent=currentLang==='en'?(project.title_en||project.title_ru):(project.title_ru||project.title_en);
     const meta=document.createElement('div');meta.className='meta';meta.textContent=currentLang==='en'?(project.meta_en||project.meta_ru):(project.meta_ru||project.meta_en);
-    overlay.append(title,meta);tile.appendChild(overlay);grid.appendChild(tile);
+    overlay.append(title,meta);tile.appendChild(overlay);
+    if(slideCount>1){
+      const count=document.createElement('span');count.className='album-count';count.textContent=`${project.media_type==='video'?'▶':'▧'} ${slideCount}`;tile.appendChild(count);
+    }
+    tile.addEventListener('click',()=>openAlbum(project,tile));
+    tile.addEventListener('keydown',event=>{if(event.key==='Enter'||event.key===' '){event.preventDefault();openAlbum(project,tile)}});
+    grid.appendChild(tile);
   }
   applyPortfolioFilter();
 }
