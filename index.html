@@ -292,14 +292,7 @@
 <section id="work"><div class="wrap">
   <div class="sec-head">
     <div><div class="tag" data-t="work_tag">Портфолио</div><h2 data-t="work_h">Работы</h2></div>
-    <p data-t="work_p">Разные стили и форматы — выбери папку.</p>
-  </div>
-  <div class="filters">
-    <button class="on" data-f="all" data-t="f_all">Всё</button>
-    <button data-f="clips" data-t="f_clips">Клипы и сниппеты</button>
-    <button data-f="animation" data-t="f_anim">Мультфильмы и сериалы</button>
-    <button data-f="viral" data-t="f_viral">Вирусные ролики Reels/TikTok</button>
-    <button data-f="photo" data-t="f_photo2">Нейрофотосессии</button>
+    <p data-t="work_p">Разные стили и форматы — открой папку.</p>
   </div>
   <div class="bento" id="portfolioGrid" aria-live="polite"></div>
   <p class="svc-note" data-t="work_note" style="margin-top:22px">Новые работы добавляются регулярно.</p>
@@ -437,7 +430,7 @@ nav_work:"Работы",nav_serv:"Услуги",nav_about:"Обо мне",nav_co
   subtitle:"Любой стиль. Любой мир. Одна задача — чтобы зацепило.",
   sub:"Создаю AI-визуал для брендов, экспертов и творческих проектов — от идеи и отдельных кадров до кинематографичных роликов, мини-фильмов, сериалов и полной визуальной упаковки.",
   cta_main:"Связаться",cta_work:"Смотреть работы",
-  work_tag:"Портфолио",work_h:"Работы",work_p:"Разные стили и форматы — выбери папку.",
+  work_tag:"Портфолио",work_h:"Работы",work_p:"Разные стили и форматы — открой папку.",
   f_all:"Всё",f_promo:"Промо",f_mood:"Атмосфера",f_photo:"AI-фото",f_worlds:"Миры",f_brand:"Упаковка",
   k_mood:"Атмосфера",k_promo:"Промо",k_photo:"AI-фото",k_worlds:"Миры",k_brand:"Упаковка",k_promo2:"Промо",k_photo2:"AI-фото",k_mood2:"Атмосфера",
   w1t:"Дождь над городом",w1m:"mood-ролик &middot; 0:30",w2t:"Тизер парфюма",w2m:"реклама &middot; 0:15",
@@ -470,7 +463,7 @@ nav_work:"Work",nav_serv:"Services",nav_about:"About",nav_contact:"Contact",nav_
   subtitle:"Any style. Any world. One goal — make it stick.",
   sub:"AI visuals for brands, experts and creative projects — from a single frame to cinematic videos, short films, series and full visual identity.",
   cta_main:"Get in touch",cta_work:"See work",
-  work_tag:"Portfolio",work_h:"Work",work_p:"Different styles and formats — pick a folder.",
+  work_tag:"Portfolio",work_h:"Work",work_p:"Different styles and formats — open a folder.",
   f_all:"All",f_promo:"Promo",f_mood:"Mood",f_photo:"AI photo",f_worlds:"Worlds",f_brand:"Branding",
   k_mood:"Mood",k_promo:"Promo",k_photo:"AI photo",k_worlds:"Worlds",k_brand:"Branding",k_promo2:"Promo",k_photo2:"AI photo",k_mood2:"Mood",
   w1t:"Rain over the city",w1m:"mood film &middot; 0:30",w2t:"Perfume teaser",w2m:"ad &middot; 0:15",
@@ -517,7 +510,8 @@ const albumCounter=document.getElementById('albumCounter');
 function getProjectSlides(project){
   const cover={media:project.media,media_type:project.media_type||'image',alt_ru:project.alt_ru,alt_en:project.alt_en};
   const extra=Array.isArray(project.album)?project.album.filter(item=>item&&item.media):[];
-  return cover.media?[cover,...extra]:extra;
+  if(extra.length)return extra;
+  return cover.media?[cover]:[];
 }
 
 function getAlbumCountText(count){
@@ -643,7 +637,7 @@ function renderProjects(){
     if(media.tagName==='IMG') media.alt=currentLang==='en'?(project.alt_en||project.title_en||''):(project.alt_ru||project.title_ru||'');
     tile.prepend(media);
 
-    const kindText=(CARD_KIND[currentLang]||CARD_KIND.ru)[project.category];
+    const kindText=null;
     if(kindText){const kind=document.createElement('span');kind.className='kind';kind.textContent=kindText;tile.appendChild(kind);}
     const overlay=document.createElement('div');overlay.className='ov';
     const title=document.createElement('h3');title.textContent=currentLang==='en'?(project.title_en||project.title_ru):(project.title_ru||project.title_en);
