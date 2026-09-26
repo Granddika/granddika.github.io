@@ -45,16 +45,68 @@
     {
       "size": "standard",
       "meta_en": "Reels · TikTok · trends",
-      "media": "/assets/media/project-05.jpg",
+      "media": "/assets/uploads/viral-01.jpg",
       "title_ru": "Вирусные ролики Reels/TikTok",
       "published": true,
       "title_en": "Viral Reels / TikTok",
       "media_type": "image",
-      "alt_ru": "Вирусные ролики",
+      "alt_ru": "Вирусные ролики Reels/TikTok",
       "id": "viral",
       "meta_ru": "Reels · TikTok · тренды",
       "category": "viral",
-      "alt_en": "Viral videos"
+      "alt_en": "Viral Reels / TikTok",
+      "album": [
+        {
+          "media_type": "video",
+          "media": "/assets/uploads/viral-01.mp4",
+          "poster": "/assets/uploads/viral-01.jpg"
+        },
+        {
+          "media_type": "video",
+          "media": "/assets/uploads/viral-02.mp4",
+          "poster": "/assets/uploads/viral-02.jpg"
+        },
+        {
+          "media_type": "video",
+          "media": "/assets/uploads/viral-03.mp4",
+          "poster": "/assets/uploads/viral-03.jpg"
+        },
+        {
+          "media_type": "video",
+          "media": "/assets/uploads/viral-04.mp4",
+          "poster": "/assets/uploads/viral-04.jpg"
+        },
+        {
+          "media_type": "video",
+          "media": "/assets/uploads/viral-05.mp4",
+          "poster": "/assets/uploads/viral-05.jpg"
+        },
+        {
+          "media_type": "video",
+          "media": "/assets/uploads/viral-06.mp4",
+          "poster": "/assets/uploads/viral-06.jpg"
+        },
+        {
+          "media_type": "video",
+          "media": "/assets/uploads/viral-07.mp4",
+          "poster": "/assets/uploads/viral-07.jpg"
+        },
+        {
+          "media_type": "video",
+          "media": "/assets/uploads/viral-08.mp4",
+          "poster": "/assets/uploads/viral-08.jpg"
+        },
+        {
+          "media_type": "video",
+          "media": "/assets/uploads/viral-09.mp4",
+          "poster": "/assets/uploads/viral-09.jpg"
+        },
+        {
+          "media_type": "video",
+          "media": "/assets/uploads/viral-10.mp4",
+          "poster": "/assets/uploads/viral-10.jpg"
+        }
+      ]
     },
     {
       "size": "standard",

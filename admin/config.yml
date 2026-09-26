@@ -64,6 +64,7 @@ collections:
                       - { label: Изображение, value: image }
                       - { label: Видео, value: video }
                     default: image
+                  - { label: Превью видео (картинка), name: poster, widget: image, required: false, hint: "Необязательно. Кадр, который видно в сетке папки до запуска видео." }
                   - { label: Описание — RU, name: alt_ru, widget: string, required: false }
                   - { label: Description — EN, name: alt_en, widget: string, required: false }
               - label: Размер карточки
