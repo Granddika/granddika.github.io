@@ -493,6 +493,7 @@ nav_work:"Work",nav_serv:"Services",nav_about:"About",nav_contact:"Contact",nav_
   c_tg:"Message me on Telegram",c_email:"Send an email",c_note:"Nothing is sent automatically: Telegram or your email app will open, and you decide what to write.",
   foot_copy:"&copy; 2026 Granddika AI &middot; AI Production",privacy_link:"Privacy Policy"}
 };
+const CARD_KIND={ru:{clips:'Клип',animation:'Анимация',viral:'Reels / TikTok',photo:'Нейрофото'},en:{clips:'Music video',animation:'Animation',viral:'Reels / TikTok',photo:'AI photo'}};
 let currentLang='ru';
 let activeFilter='all';
 let portfolioProjects=[];
@@ -642,8 +643,8 @@ function renderProjects(){
     if(media.tagName==='IMG') media.alt=currentLang==='en'?(project.alt_en||project.title_en||''):(project.alt_ru||project.title_ru||'');
     tile.prepend(media);
 
-    const kind=document.createElement('span');kind.className='kind';kind.textContent=currentLang==='en'?(project.kind_en||project.category):(project.kind_ru||project.category);
-    tile.appendChild(kind);
+    const kindText=(CARD_KIND[currentLang]||CARD_KIND.ru)[project.category];
+    if(kindText){const kind=document.createElement('span');kind.className='kind';kind.textContent=kindText;tile.appendChild(kind);}
     const overlay=document.createElement('div');overlay.className='ov';
     const title=document.createElement('h3');title.textContent=currentLang==='en'?(project.title_en||project.title_ru):(project.title_ru||project.title_en);
     const meta=document.createElement('div');meta.className='meta';meta.textContent=currentLang==='en'?(project.meta_en||project.meta_ru):(project.meta_ru||project.meta_en);
