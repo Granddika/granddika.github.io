@@ -251,7 +251,6 @@
   }
   @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
 </style>
-  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body>
 <div id="cursorLight"></div>
@@ -814,12 +813,5 @@ document.querySelectorAll('.lang button').forEach(b=>b.addEventListener('click',
 })();
 </script>
 
-<script>
-if(window.netlifyIdentity){
-  window.netlifyIdentity.on('init',user=>{
-    if(!user)window.netlifyIdentity.on('login',()=>{document.location.href='/admin/';});
-  });
-}
-</script>
 </body>
 </html>

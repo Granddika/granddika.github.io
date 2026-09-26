@@ -1,5 +1,6 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: Granddika/granddika.github.io
   branch: main
 
 locale: ru
