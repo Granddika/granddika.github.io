@@ -27,20 +27,11 @@ collections:
                 name: category
                 widget: select
                 options:
-                  - { label: Промо, value: promo }
-                  - { label: Атмосфера, value: mood }
-                  - { label: AI-фото, value: photo }
-                  - { label: Миры, value: worlds }
-                  - { label: Упаковка, value: brand }
-              - { label: Название категории — RU, name: kind_ru, widget: string }
-              - { label: Category name — EN, name: kind_en, widget: string }
-              - { label: Название работы — RU, name: title_ru, widget: string }
-              - { label: Project title — EN, name: title_en, widget: string }
-              - { label: Подпись — RU, name: meta_ru, widget: string, required: false }
-              - { label: Caption — EN, name: meta_en, widget: string, required: false }
-              - { label: Описание изображения — RU, name: alt_ru, widget: string, required: false }
-              - { label: Image description — EN, name: alt_en, widget: string, required: false }
-              - { label: Фото или видео, name: media, widget: file, media_library: { config: { multiple: false } } }
+                  - { label: Клипы и сниппеты, value: clips }
+                  - { label: Мультфильмы и сериалы, value: animation }
+                  - { label: Вирусные ролики Reels/TikTok, value: viral }
+                  - { label: Нейрофотосессии, value: photo }
+                  - { label: Архив (видно только во «Всё»), value: archive }
               - label: Тип файла
                 name: media_type
                 widget: select

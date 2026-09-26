@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Granddika AI — Кино без камеры</title>
-<meta name="description" content="Атмосферное AI-кино для брендов и артистов. Упаковка бренда, промо-ролики, нейрофото.">
+<meta name="description" content="Granddika AI — AI-продакшн: ролики и реклама, клипы для артистов, мультфильмы и сериалы, нейрофотосессии. От идеи до готового результата.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800&family=Onest:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -175,6 +175,9 @@
   .svc .price{font-family:'Unbounded';font-weight:600;font-size:15px;color:var(--ink)}
   .svc .price b{color:var(--pink)}
   .svc-note{margin-top:22px;color:var(--muted);font-size:13.5px;text-align:center}
+  .svc-soon{margin-top:26px;color:var(--ink);font-size:14.5px}
+  .svc-soon b{color:var(--pink);font-weight:600}
+  .about-photo img{width:100%;height:100%;object-fit:cover;display:block}
 
   /* ABOUT */
   .about{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
@@ -274,13 +277,13 @@
   <div class="glow"></div><div class="overlay"></div><div class="grain"></div>
   <div class="playbtn" id="playBtn"><span class="ic">&#9654;</span><span data-t="play">Включить видео</span></div>
   <div class="hero-content"><div class="inner">
-    <div class="eyebrow"><span class="dot-e"></span><span data-t="eyebrow">AI-кино &middot; Атмосфера</span></div>
+    <div class="eyebrow"><span class="dot-e"></span><span data-t="eyebrow">AI-продакшн &middot; Визуал &middot; Кино</span></div>
     <h1 data-t="h1">Кино <span class="grad">без камеры</span></h1>
-    <div class="subtitle" data-t="subtitle">Где настроение становится движением</div>
-    <p class="sub" data-t="sub">Атмосферное AI-кино для брендов и артистов. Упаковка, промо-ролики, визуал — с настроением, которое невозможно пролистать.</p>
+    <div class="subtitle" data-t="subtitle">Любой стиль. Любой мир. Одна задача — чтобы зацепило.</div>
+    <p class="sub" data-t="sub">Создаю AI-визуал для брендов, экспертов и творческих проектов — от идеи и отдельных кадров до кинематографичных роликов, мини-фильмов, сериалов и полной визуальной упаковки.</p>
     <div class="actions">
-      <a class="btn-primary" href="#contact" data-t="cta_main">Связаться</a>
-      <a class="btn-ghost" href="#work" data-t="cta_work">Смотреть работы</a>
+      <a class="btn-primary" href="#work" data-t="cta_work">Смотреть работы</a>
+      <a class="btn-ghost" href="#contact" data-t="cta_main">Связаться</a>
     </div>
   </div></div>
 </section>
@@ -289,18 +292,17 @@
 <section id="work"><div class="wrap">
   <div class="sec-head">
     <div><div class="tag" data-t="work_tag">Портфолио</div><h2 data-t="work_h">Работы</h2></div>
-    <p data-t="work_p">Один почерк — разные форматы. Выбери категорию.</p>
+    <p data-t="work_p">Разные стили и форматы — выбери папку.</p>
   </div>
   <div class="filters">
     <button class="on" data-f="all" data-t="f_all">Всё</button>
-    <button data-f="promo" data-t="f_promo">Промо</button>
-    <button data-f="mood" data-t="f_mood">Атмосфера</button>
-    <button data-f="photo" data-t="f_photo">AI-фото</button>
-    <button data-f="worlds" data-t="f_worlds">Миры</button>
-    <button data-f="brand" data-t="f_brand">Упаковка</button>
+    <button data-f="clips" data-t="f_clips">Клипы и сниппеты</button>
+    <button data-f="animation" data-t="f_anim">Мультфильмы и сериалы</button>
+    <button data-f="viral" data-t="f_viral">Вирусные ролики Reels/TikTok</button>
+    <button data-f="photo" data-t="f_photo2">Нейрофотосессии</button>
   </div>
   <div class="bento" id="portfolioGrid" aria-live="polite"></div>
-  <p class="svc-note" data-t="work_note" style="margin-top:22px">Серия «Красный импульс» — от концепции до кадра. Больше работ — скоро.</p>
+  <p class="svc-note" data-t="work_note" style="margin-top:22px">Новые работы добавляются регулярно.</p>
 </div></section>
 
 <div class="album-modal" id="albumModal" role="dialog" aria-modal="true" aria-labelledby="albumTitle" aria-hidden="true">
@@ -323,33 +325,52 @@
 <section id="services"><div class="wrap">
   <div class="sec-head">
     <div><div class="tag" data-t="serv_tag">Услуги</div><h2 data-t="serv_h">Что делаю</h2></div>
-    <p data-t="serv_p">Две главные услуги. Всё — в кинематографичной атмосфере.</p>
+    <p data-t="serv_p">От идеи и сценария до готового результата — берусь за весь цикл.</p>
   </div>
   <div class="services">
     <div class="svc glass">
-      <div class="ic">&#127902;</div>
-      <h3 data-t="s1h">AI-упаковка бренда / продукта</h3>
-      <p data-t="s1p">Визуальный образ, который выглядит дорого. Ключевые кадры, фирменная эстетика, атмосфера под ваш бренд или цифровой продукт.</p>
+      <div class="ic">&#128227;</div>
+      <h3 data-t="s1h">AI-ролики и реклама</h3>
+      <p data-t="s1p">Ролики для брендов и продуктов, на которых останавливается скролл.</p>
       <ul>
-        <li data-t="s1l1">Key visuals и фирменный стиль</li>
-        <li data-t="s1l2">AI-персонаж / аватар бренда</li>
-        <li data-t="s1l3">Нейрофото под концепцию</li>
+        <li data-t="s1l1">Промо и реклама</li>
+        <li data-t="s1l2">Вирусные Reels / TikTok</li>
+        <li data-t="s1l3">AI-инфлюенсеры и UGC</li>
       </ul>
-      <div class="price" data-t="s1price"><b>от $300</b></div>
     </div>
     <div class="svc glass">
-      <div class="ic">&#127916;</div>
-      <h3 data-t="s2h">AI-промо-ролики</h3>
-      <p data-t="s2p">Рекламные и атмосферные видео, на которых останавливается скролл. Идея, генерация, монтаж, звук — под ключ.</p>
+      <div class="ic">&#127908;</div>
+      <h3 data-t="s2h">Клипы для артистов</h3>
+      <p data-t="s2p">Видео под трек: от сниппета до полноценного клипа.</p>
       <ul>
-        <li data-t="s2l1">Промо и тизеры 15–30 сек</li>
-        <li data-t="s2l2">Mood-ролики и визуалайзеры</li>
-        <li data-t="s2l3">Музыка и саунд-дизайн</li>
+        <li data-t="s2l1">Сниппеты и клипы</li>
+        <li data-t="s2l2">Липсинк</li>
+        <li data-t="s2l3">Визуал к релизу</li>
       </ul>
-      <div class="price" data-t="s2price"><b>от $150</b></div>
+    </div>
+    <div class="svc glass">
+      <div class="ic">&#127902;</div>
+      <h3 data-t="s3h">Мультфильмы и сериалы</h3>
+      <p data-t="s3p">Истории с героями, которые хочется досмотреть.</p>
+      <ul>
+        <li data-t="s3l1">Мультфильмы</li>
+        <li data-t="s3l2">Мини-сериалы</li>
+        <li data-t="s3l3">Персонажи и миры</li>
+      </ul>
+    </div>
+    <div class="svc glass">
+      <div class="ic">&#128248;</div>
+      <h3 data-t="s4h">Нейрофотосессии</h3>
+      <p data-t="s4p">Фотосессия без студии и фотографа — в любом образе.</p>
+      <ul>
+        <li data-t="s4l1">Портреты и образы</li>
+        <li data-t="s4l2">Фото для личного бренда</li>
+        <li data-t="s4l3">Предметная съёмка</li>
+      </ul>
     </div>
   </div>
-  <p class="svc-note" data-t="serv_note">Точная цена зависит от объёма и сложности — обсудим при общении.</p>
+  <p class="svc-note svc-soon" data-t="serv_soon"><b>Скоро:</b> разработка сайтов &middot; обучение и курсы по AI</p>
+  <p class="svc-note" data-t="serv_note">Стоимость считаю под задачу — напиши, обсудим.</p>
 </div></section>
 
 <!-- ABOUT -->
@@ -357,11 +378,11 @@
   <div class="about">
     <div class="about-text">
       <div class="tag" style="font-size:13px;letter-spacing:2px;text-transform:uppercase;color:var(--pink);margin-bottom:14px" data-t="about_tag">Обо мне</div>
-      <p data-t="ab1">Я создаю визуальные миры, которых ещё не существует. Атмосферное AI-кино и образы, где реальность встречается с воображением, а каждый кадр рассказывает историю.</p>
+      <p data-t="ab1">Я — Granddika. AI-креатор и режиссёр: придумываю, пишу и собираю визуал — от одного кадра до мини-сериала.</p>
       <p data-t="ab2">Мой подход — одержимость деталями. Свет, цвет, ритм, настроение выверяются до тех пор, пока картинка не начинает <em>дышать</em>. «Нормально» для меня недостаточно — я работаю до момента, когда становится «вот оно».</p>
-      <p data-t="ab3">Я — часть новой волны AI-креаторов, для которых нейросеть не замена вкусу, а инструмент в руках того, у кого этот вкус есть. Бренд, продукт, артиста — превращаю в атмосферу, которую невозможно пролистать.</p>
+      <p data-t="ab3">Нейросеть для меня — не замена вкусу, а инструмент. Стиль подбираю под задачу: реализм, анимация, игровая графика, яркая реклама — главное, чтобы цепляло и работало.</p>
     </div>
-    <div class="about-photo"><span class="lbl" data-t="about_lbl">Твоё фото — сюда</span></div>
+    <div class="about-photo"><img src="assets/media/about.jpg" alt="Granddika" loading="lazy" width="1100" height="1375"></div>
   </div>
 </div></section>
 
@@ -381,7 +402,7 @@
           <span data-t="c_email">Написать на почту</span>
         </a>
       </div>
-      <p class="contact-note" data-t="c_note">Сообщение не отправится автоматически: откроется Telegram или почтовое приложение, и ты сама решишь, что написать.</p>
+      <p class="contact-note" data-t="c_note">Сообщение не отправится автоматически: откроется Telegram или почтовое приложение, и ты решаешь, что написать.</p>
     </div>
   </div>
 </div></section>
@@ -399,7 +420,7 @@
       </a>
     </div>
   </div>
-  <div class="copy" data-t="foot_copy">&copy; 2026 Granddika AI &middot; Atmospheric AI Cinema</div>
+  <div class="copy" data-t="foot_copy">&copy; 2026 Granddika AI &middot; AI-продакшн</div>
   <div class="privacy-footer"><a href="/privacy.html" data-t="privacy_link">Политика конфиденциальности</a></div>
 </div></footer>
 
@@ -410,65 +431,67 @@ const T={
   w1t:"Пустая улица",w1m:"Красный импульс · кадр 1",w2t:"Появление",w2m:"Красный импульс · кадр 2",
   w3t:"Портрет в неоне",w3m:"нейрофото",w4t:"Переулок",w4m:"Красный импульс · кадр 5",
   w5t:"Капли",w5m:"текстура ночи",w6t:"Красная луна",w6m:"Красный импульс · финал",
-  w7t:"Отражения",w7m:"текстура ночи",work_note:"Серия «Красный импульс» — от концепции до кадра. Больше работ — скоро.",
+  w7t:"Отражения",w7m:"текстура ночи",work_note:"Новые работы добавляются регулярно.",
 nav_work:"Работы",nav_serv:"Услуги",nav_about:"Обо мне",nav_contact:"Контакт",nav_cta:"Обсудить проект",
-  play:"Включить видео",eyebrow:"AI-кино &middot; Атмосфера",h1:'Кино <span class="grad">без камеры</span>',
-  subtitle:"Где настроение становится движением",
-  sub:"Атмосферное AI-кино для брендов и артистов. Упаковка, промо-ролики, визуал — с настроением, которое невозможно пролистать.",
+  play:"Включить видео",eyebrow:"AI-продакшн &middot; Визуал &middot; Кино",h1:'Кино <span class="grad">без камеры</span>',
+  subtitle:"Любой стиль. Любой мир. Одна задача — чтобы зацепило.",
+  sub:"Создаю AI-визуал для брендов, экспертов и творческих проектов — от идеи и отдельных кадров до кинематографичных роликов, мини-фильмов, сериалов и полной визуальной упаковки.",
   cta_main:"Связаться",cta_work:"Смотреть работы",
-  work_tag:"Портфолио",work_h:"Работы",work_p:"Один почерк — разные форматы. Выбери категорию.",
+  work_tag:"Портфолио",work_h:"Работы",work_p:"Разные стили и форматы — выбери папку.",
   f_all:"Всё",f_promo:"Промо",f_mood:"Атмосфера",f_photo:"AI-фото",f_worlds:"Миры",f_brand:"Упаковка",
   k_mood:"Атмосфера",k_promo:"Промо",k_photo:"AI-фото",k_worlds:"Миры",k_brand:"Упаковка",k_promo2:"Промо",k_photo2:"AI-фото",k_mood2:"Атмосфера",
   w1t:"Дождь над городом",w1m:"mood-ролик &middot; 0:30",w2t:"Тизер парфюма",w2m:"реклама &middot; 0:15",
   w3t:"Серия «Неон»",w3m:"8 кадров",w4t:"Фэнтези-вселенная",w4m:"серия &middot; фрагмент",
   w5t:"Визуал бренда",w5m:"key visual",w6t:"Реклама продукта",w6m:"ролик &middot; 0:20",
   w7t:"Портрет-серия",w7m:"нейрофото",w8t:"Отражения",w8m:"кинокадр &middot; 0:12",
-  serv_tag:"Услуги",serv_h:"Что делаю",serv_p:"Две главные услуги. Всё — в кинематографичной атмосфере.",
-  s1h:"AI-упаковка бренда / продукта",s1p:"Визуальный образ, который выглядит дорого. Ключевые кадры, фирменная эстетика, атмосфера под ваш бренд или цифровой продукт.",
-  s1l1:"Key visuals и фирменный стиль",s1l2:"AI-персонаж / аватар бренда",s1l3:"Нейрофото под концепцию",s1price:'<b>от $300</b>',
-  s2h:"AI-промо-ролики",s2p:"Рекламные и атмосферные видео, на которых останавливается скролл. Идея, генерация, монтаж, звук — под ключ.",
-  s2l1:"Промо и тизеры 15–30 сек",s2l2:"Mood-ролики и визуалайзеры",s2l3:"Музыка и саунд-дизайн",s2price:'<b>от $150</b>',
-  serv_note:"Точная цена зависит от объёма и сложности — обсудим при общении.",
+  serv_tag:"Услуги",serv_h:"Что делаю",serv_p:"От идеи и сценария до готового результата — берусь за весь цикл.",
+  
+  
+  
+  
+  serv_note:"Стоимость считаю под задачу — напиши, обсудим.",
+  f_clips:"Клипы и сниппеты",f_anim:"Мультфильмы и сериалы",f_viral:"Вирусные ролики Reels/TikTok",f_photo2:"Нейрофотосессии",s1h:"AI-ролики и реклама",s1p:"Ролики для брендов и продуктов, на которых останавливается скролл.",s1l1:"Промо и реклама",s1l2:"Вирусные Reels / TikTok",s1l3:"AI-инфлюенсеры и UGC",s2h:"Клипы для артистов",s2p:"Видео под трек: от сниппета до полноценного клипа.",s2l1:"Сниппеты и клипы",s2l2:"Липсинк",s2l3:"Визуал к релизу",s3h:"Мультфильмы и сериалы",s3p:"Истории с героями, которые хочется досмотреть.",s3l1:"Мультфильмы",s3l2:"Мини-сериалы",s3l3:"Персонажи и миры",s4h:"Нейрофотосессии",s4p:"Фотосессия без студии и фотографа — в любом образе.",s4l1:"Портреты и образы",s4l2:"Фото для личного бренда",s4l3:"Предметная съёмка",serv_soon:"<b>Скоро:</b> разработка сайтов &middot; обучение и курсы по AI",
   about_tag:"Обо мне",
-  ab1:"Я создаю визуальные миры, которых ещё не существует. Атмосферное AI-кино и образы, где реальность встречается с воображением, а каждый кадр рассказывает историю.",
+  ab1:"Я — Granddika. AI-креатор и режиссёр: придумываю, пишу и собираю визуал — от одного кадра до мини-сериала.",
   ab2:'Мой подход — одержимость деталями. Свет, цвет, ритм, настроение выверяются до тех пор, пока картинка не начинает <em>дышать</em>. «Нормально» для меня недостаточно — я работаю до момента, когда становится «вот оно».',
-  ab3:"Я — часть новой волны AI-креаторов, для которых нейросеть не замена вкусу, а инструмент в руках того, у кого этот вкус есть. Бренд, продукт, артиста — превращаю в атмосферу, которую невозможно пролистать.",
+  ab3:"Нейросеть для меня — не замена вкусу, а инструмент. Стиль подбираю под задачу: реализм, анимация, игровая графика, яркая реклама — главное, чтобы цепляло и работало.",
   about_lbl:"Твоё фото — сюда",
   c_h:'Запустим <span class="grad">проект</span>',c_p:"Выбери удобный способ связи — отвечу в течение дня.",
-  c_tg:"Написать в Telegram",c_email:"Написать на почту",c_note:"Сообщение не отправится автоматически: откроется Telegram или почтовое приложение, и ты сама решишь, что написать.",
-  foot_copy:"&copy; 2026 Granddika AI &middot; Атмосферное AI-кино",privacy_link:"Политика конфиденциальности"},
+  c_tg:"Написать в Telegram",c_email:"Написать на почту",c_note:"Сообщение не отправится автоматически: откроется Telegram или почтовое приложение, и ты решаешь, что написать.",
+  foot_copy:"&copy; 2026 Granddika AI &middot; AI-продакшн",privacy_link:"Политика конфиденциальности"},
  en:{
   k_mood3:"Mood",k_photo3:"AI photo",
   w1t:"Empty street",w1m:"Red Impulse · frame 1",w2t:"Arrival",w2m:"Red Impulse · frame 2",
   w3t:"Neon portrait",w3m:"AI photo",w4t:"The alley",w4m:"Red Impulse · frame 5",
   w5t:"Droplets",w5m:"texture of night",w6t:"Red moon",w6m:"Red Impulse · finale",
-  w7t:"Reflections",w7m:"texture of night",work_note:"\'Red Impulse\' series — from concept to frame. More work soon.",
+  w7t:"Reflections",w7m:"texture of night",work_note:"New work is added regularly.",
 nav_work:"Work",nav_serv:"Services",nav_about:"About",nav_contact:"Contact",nav_cta:"Start a project",
-  play:"Play video",eyebrow:"Atmospheric AI &middot; Cinema",h1:'Cinema <span class="grad">without a camera</span>',
-  subtitle:"Where mood becomes motion",
-  sub:"Atmospheric AI cinema for brands & artists. Branding, promo videos, visuals — with a mood you can't scroll past.",
+  play:"Play video",eyebrow:"AI production &middot; Visuals &middot; Cinema",h1:'Cinema <span class="grad">without a camera</span>',
+  subtitle:"Any style. Any world. One goal — make it stick.",
+  sub:"AI visuals for brands, experts and creative projects — from a single frame to cinematic videos, short films, series and full visual identity.",
   cta_main:"Get in touch",cta_work:"See work",
-  work_tag:"Portfolio",work_h:"Work",work_p:"One signature — many formats. Pick a category.",
+  work_tag:"Portfolio",work_h:"Work",work_p:"Different styles and formats — pick a folder.",
   f_all:"All",f_promo:"Promo",f_mood:"Mood",f_photo:"AI photo",f_worlds:"Worlds",f_brand:"Branding",
   k_mood:"Mood",k_promo:"Promo",k_photo:"AI photo",k_worlds:"Worlds",k_brand:"Branding",k_promo2:"Promo",k_photo2:"AI photo",k_mood2:"Mood",
   w1t:"Rain over the city",w1m:"mood film &middot; 0:30",w2t:"Perfume teaser",w2m:"ad &middot; 0:15",
   w3t:"Neon series",w3m:"8 frames",w4t:"Fantasy universe",w4m:"series &middot; excerpt",
   w5t:"Brand visual",w5m:"key visual",w6t:"Product ad",w6m:"film &middot; 0:20",
   w7t:"Portrait series",w7m:"AI photo",w8t:"Reflections",w8m:"film frame &middot; 0:12",
-  serv_tag:"Services",serv_h:"What I do",serv_p:"Two core services. All in cinematic atmosphere.",
-  s1h:"AI brand / product packaging",s1p:"A visual identity that looks expensive. Key visuals, signature aesthetic, atmosphere tailored to your brand or digital product.",
-  s1l1:"Key visuals & signature style",s1l2:"AI character / brand avatar",s1l3:"AI photography to concept",s1price:'<b>from $300</b>',
-  s2h:"AI promo videos",s2p:"Ad and atmospheric videos that stop the scroll. Concept, generation, editing, sound — done for you.",
-  s2l1:"Promos & teasers 15–30 sec",s2l2:"Mood films & visualizers",s2l3:"Music & sound design",s2price:'<b>from $150</b>',
-  serv_note:"Final price depends on scope and complexity — let's discuss it directly.",
+  serv_tag:"Services",serv_h:"What I do",serv_p:"From idea and script to the finished result — I handle the whole cycle.",
+  
+  
+  
+  
+  serv_note:"Pricing depends on the task — message me and we'll discuss.",
+  f_clips:"Music Videos",f_anim:"Animation & Series",f_viral:"Viral Reels / TikTok",f_photo2:"AI Photoshoots",s1h:"AI videos & ads",s1p:"Videos for brands and products that stop the scroll.",s1l1:"Promo & ads",s1l2:"Viral Reels / TikTok",s1l3:"AI influencers & UGC",s2h:"Music videos for artists",s2p:"Video for your track: from a snippet to a full music video.",s2l1:"Snippets & music videos",s2l2:"Lip-sync",s2l3:"Release visuals",s3h:"Animation & series",s3p:"Stories with characters people want to watch to the end.",s3l1:"Animated films",s3l2:"Mini-series",s3l3:"Characters & worlds",s4h:"AI photoshoots",s4p:"A photoshoot with no studio and no photographer — in any look.",s4l1:"Portraits & looks",s4l2:"Personal brand photos",s4l3:"Product shots",serv_soon:"<b>Coming soon:</b> website development &middot; AI training & courses",
   about_tag:"About",
-  ab1:"I create visual worlds that don't exist yet. Atmospheric AI cinema and imagery where reality meets imagination and every frame tells a story.",
+  ab1:"I'm Granddika — an AI creator and director: I come up with, write and build visuals, from a single frame to a mini-series.",
   ab2:'My approach is an obsession with detail. Light, color, rhythm, mood — tuned until the image starts to <em>breathe</em>. "Good enough" isn\'t; I work until it becomes "there it is."',
-  ab3:"I'm part of a new wave of AI creators — for whom AI isn't a replacement for taste, but a tool in the hands of someone who has it. Brands, products, artists — I turn them into atmosphere you can't scroll past.",
+  ab3:"For me AI isn't a replacement for taste — it's a tool. I pick the style for the task: realism, animation, game graphics, bold commercial visuals — what matters is that it hooks and works.",
   about_lbl:"Your photo goes here",
   c_h:'Start a <span class="grad">project</span>',c_p:"Choose how to get in touch — I'll reply within a day.",
   c_tg:"Message me on Telegram",c_email:"Send an email",c_note:"Nothing is sent automatically: Telegram or your email app will open, and you decide what to write.",
-  foot_copy:"&copy; 2026 Granddika AI &middot; Atmospheric AI Cinema",privacy_link:"Privacy Policy"}
+  foot_copy:"&copy; 2026 Granddika AI &middot; AI Production",privacy_link:"Privacy Policy"}
 };
 let currentLang='ru';
 let activeFilter='all';
@@ -726,19 +749,19 @@ pb.addEventListener('click',()=>{v.play();pb.classList.remove('show');});
 <script>
 const FAQ={
   ru:[
-    ["💰 Сколько стоит?","Упаковка бренда — от $300, промо-ролик — от $150, нейрофото — по объёму. Точная цена зависит от сложности проекта. Расскажи о задаче — посчитаю."],
-    ["⏱️ Какие сроки?","Видео: 3–10 дней в зависимости от длительности и сложности ролика. Упаковка бренда: от недели."],
-    ["📸 Нейрофото?","AI-фотосессии и серии в моей эстетике: портреты, key visuals, образы под бренд или продукт — без реальной съёмки."],
-    ["🎨 А другой стиль?","Мой почерк — атмосферное, кинематографичное. Если проект в этом мире — тебе ко мне. Если нужен яркий дневной стиль, честно скажу, если это не моё."],
-    ["📦 Что входит?","Идея, генерация, монтаж, звук — под ключ. Ты получаешь готовый результат, а не папку с черновиками."],
+    ["💰 Сколько стоит?","Стоимость считаю под задачу: зависит от формата, длительности и сложности. Напиши, что нужно, — сориентирую по цене."],
+    ["⏱️ Какие сроки?","Видео: 3–10 дней в зависимости от длительности и сложности. Мультфильмы и сериалы — по объёму, сроки обсудим на старте."],
+    ["📸 Нейрофото?","AI-фотосессии в любом образе и локации: портреты, фото для личного бренда, предметная съёмка — без студии и фотографа."],
+    ["🎨 А другой стиль?","Да. Стиль подбираю под задачу — от реализма до анимации и игровой графики. Перед стартом покажу референсы."],
+    ["📦 Что входит?","Идея, сценарий, генерация, монтаж, звук — под ключ. Ты получаешь готовый результат, а не папку с черновиками."],
     ["✍️ Как заказать?","Напиши мне в Telegram или на почту — обсудим задачу, сориентирую по цене и срокам."]
   ],
   en:[
-    ["💰 Pricing?","Brand packaging — from $300, promo video — from $150, AI photo — by scope. Final price depends on complexity. Tell me about the project and I'll estimate."],
-    ["⏱️ Timeline?","Video: 3–10 days depending on length and complexity. Brand packaging: from one week."],
-    ["📸 AI photo?","AI photoshoots and series in my aesthetic: portraits, key visuals, looks for a brand or product — no real shoot needed."],
-    ["🎨 Other style?","My signature is atmospheric, cinematic. If your project lives in that world — I'm your person. If you need a bright daytime style, I'll tell you honestly if it's not my thing."],
-    ["📦 What's included?","Concept, generation, editing, sound — done for you. You get a finished result, not a folder of drafts."],
+    ["💰 Pricing?","I price each project individually: it depends on format, length and complexity. Tell me what you need and I'll give you an estimate."],
+    ["⏱️ Timeline?","Video: 3–10 days depending on length and complexity. Animation and series — by scope, we'll agree on timing at the start."],
+    ["📸 AI photo?","AI photoshoots in any look and location: portraits, personal brand photos, product shots — no studio or photographer needed."],
+    ["🎨 Other styles?","Yes. I pick the style for the task — from realism to animation and game graphics. I'll show references before we start."],
+    ["📦 What's included?","Concept, script, generation, editing, sound — done for you. You get a finished result, not a folder of drafts."],
     ["✍️ How to order?","Message me on Telegram or email me — we'll discuss the task and I'll guide you on price and timing."]
   ]
 };

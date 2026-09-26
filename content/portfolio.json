@@ -13,7 +13,7 @@
       "alt_ru": "Пустая улица в красном свете",
       "id": "empty-street",
       "meta_ru": "Красный импульс · кадр 1",
-      "category": "mood",
+      "category": "archive",
       "alt_en": "Empty street in red light"
     },
     {
@@ -29,16 +29,16 @@
       "alt_ru": "Появление персонажа в кинематографичной сцене",
       "id": "arrival",
       "meta_ru": "Красный импульс · кадр 2",
-      "category": "mood",
+      "category": "archive",
       "alt_en": "A character appearing in a cinematic scene"
     },
     {
       "size": "standard",
-      "meta_en": "AI photo",
+      "meta_en": "AI photoshoot",
       "media": "/assets/uploads/soyuz-0418f4e5-0ac3-4de6-9e21-fc950be58ba7.jpg",
       "title_ru": "Портрет в неоне",
       "published": true,
-      "kind_ru": "AI-фото",
+      "kind_ru": "Нейрофотосессии",
       "album": [
         {
           "media_type": "image",
@@ -70,13 +70,13 @@
         }
       ],
       "title_en": "Neon portrait",
-      "kind_en": "AI photo",
+      "kind_en": "AI Photoshoots",
       "media_type": "image",
-      "alt_ru": "Нейрофотосесси",
-      "id": "Neurophoto",
-      "meta_ru": "нейрофото",
+      "alt_ru": "Нейрофотосессия",
+      "id": "neurophoto",
+      "meta_ru": "нейрофотосессия",
       "category": "photo",
-      "alt_en": "Neurophoto"
+      "alt_en": "AI photoshoot"
     },
     {
       "size": "wide",
@@ -91,7 +91,7 @@
       "alt_ru": "Кинематографичный переулок",
       "id": "alley",
       "meta_ru": "Красный импульс · кадр 5",
-      "category": "mood",
+      "category": "archive",
       "alt_en": "Cinematic alley"
     },
     {
@@ -107,7 +107,7 @@
       "alt_ru": "Капли в ночном освещении",
       "id": "droplets",
       "meta_ru": "текстура ночи",
-      "category": "photo",
+      "category": "archive",
       "alt_en": "Droplets in night lighting"
     },
     {
@@ -123,7 +123,7 @@
       "alt_ru": "Фантастический мир с красной луной",
       "id": "red-moon",
       "meta_ru": "Красный импульс · финал",
-      "category": "worlds",
+      "category": "archive",
       "alt_en": "Fantasy world with a red moon"
     },
     {
@@ -139,7 +139,7 @@
       "alt_ru": "Ночные отражения",
       "id": "reflections",
       "meta_ru": "текстура ночи",
-      "category": "photo",
+      "category": "archive",
       "alt_en": "Night reflections"
     }
   ]
