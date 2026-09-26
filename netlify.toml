@@ -1,5 +1,7 @@
 [build]
   publish = "."
+  # Сайт живёт на GitHub Pages. Netlify только перенаправляет старый адрес — новые сборки не запускаем (экономия кредитов).
+  ignore = "exit 0"
 
 [[redirects]]
   from = "/*"
