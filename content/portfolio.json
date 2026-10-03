@@ -27,7 +27,23 @@
       "meta_ru": "сниппеты · клипы · липсинк",
       "category": "clips",
       "alt_en": "Music videos & snippets",
-      "cover_focus": "50% 15%"
+      "cover_focus": "50% 15%",
+      "album": [
+        {
+          "media_type": "video",
+          "media": "/assets/uploads/clips-01.mp4",
+          "poster": "/assets/uploads/clips-01.jpg",
+          "alt_ru": "Miyagi — No Contest, AI-сниппет",
+          "alt_en": "Miyagi — No Contest, AI snippet"
+        },
+        {
+          "media_type": "video",
+          "media": "/assets/uploads/clips-02.mp4",
+          "poster": "/assets/uploads/clips-02.jpg",
+          "alt_ru": "Сниппет на берегу океана",
+          "alt_en": "Oceanside snippet"
+        }
+      ]
     },
     {
       "size": "standard",
