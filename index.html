@@ -638,6 +638,7 @@ function renderProjects(){
       media=document.createElement('img');media.loading='lazy';
     }
     media.className='media';
+    if(project.cover_focus)media.style.objectPosition=project.cover_focus;
     media.src=project.media;
     media.setAttribute('aria-label',currentLang==='en'?(project.alt_en||project.title_en||''):(project.alt_ru||project.title_ru||''));
     if(media.tagName==='IMG') media.alt=currentLang==='en'?(project.alt_en||project.title_en||''):(project.alt_ru||project.title_ru||'');

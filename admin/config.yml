@@ -75,3 +75,13 @@ collections:
                   - { label: Широкая, value: wide }
                   - { label: Большая, value: large }
                 default: standard
+              - label: Положение обложки в карточке
+                name: cover_focus
+                widget: select
+                required: false
+                hint: "Какую часть обложки показывать, если она не помещается целиком"
+                options:
+                  - { label: По центру, value: "50% 50%" }
+                  - { label: Верх, value: "50% 15%" }
+                  - { label: Самый верх, value: "50% 0%" }
+                  - { label: Низ, value: "50% 85%" }
