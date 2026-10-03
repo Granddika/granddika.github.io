@@ -5,30 +5,14 @@
       "meta_en": "episodes 1–2",
       "media": "/assets/uploads/series-cover.jpg",
       "title_ru": "Мини-сериал",
-      "published": true,
+      "published": false,
       "title_en": "Mini-series",
       "media_type": "image",
       "alt_ru": "Кадр из мини-сериала",
       "id": "mini-series",
       "meta_ru": "серии 1–2",
       "category": "animation",
-      "alt_en": "Mini-series still",
-      "album": [
-        {
-          "media_type": "video",
-          "media": "/assets/uploads/series-01.mp4",
-          "poster": "/assets/uploads/series-01.jpg",
-          "alt_ru": "Мини-сериал, серия 1",
-          "alt_en": "Mini-series, episode 1"
-        },
-        {
-          "media_type": "video",
-          "media": "/assets/uploads/series-02.mp4",
-          "poster": "/assets/uploads/series-02.jpg",
-          "alt_ru": "Мини-сериал, серия 2",
-          "alt_en": "Mini-series, episode 2"
-        }
-      ]
+      "alt_en": "Mini-series still"
     },
     {
       "size": "standard",
@@ -60,17 +44,31 @@
       "album": [
         {
           "media_type": "video",
-          "media": "/assets/uploads/anim-01.mp4",
-          "poster": "/assets/uploads/anim-01.jpg",
+          "media": "/assets/uploads/anim-02.mp4",
+          "poster": "/assets/uploads/anim-02.jpg",
           "alt_ru": "Персик, серия 1",
           "alt_en": "Peach, episode 1"
         },
         {
           "media_type": "video",
-          "media": "/assets/uploads/anim-02.mp4",
-          "poster": "/assets/uploads/anim-02.jpg",
+          "media": "/assets/uploads/anim-01.mp4",
+          "poster": "/assets/uploads/anim-01.jpg",
           "alt_ru": "Персик, серия 2",
           "alt_en": "Peach, episode 2"
+        },
+        {
+          "media_type": "video",
+          "media": "/assets/uploads/series-01.mp4",
+          "poster": "/assets/uploads/series-01.jpg",
+          "alt_ru": "Сериал, серия 1",
+          "alt_en": "Series, episode 1"
+        },
+        {
+          "media_type": "video",
+          "media": "/assets/uploads/series-02.mp4",
+          "poster": "/assets/uploads/series-02.jpg",
+          "alt_ru": "Сериал, серия 2",
+          "alt_en": "Series, episode 2"
         },
         {
           "media_type": "video",
