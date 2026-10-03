@@ -103,6 +103,13 @@
         },
         {
           "media_type": "video",
+          "media": "/assets/uploads/anim-06.mp4",
+          "poster": "/assets/uploads/anim-06.jpg",
+          "alt_ru": "Фэнтези-история",
+          "alt_en": "Fantasy story"
+        },
+        {
+          "media_type": "video",
           "media": "/assets/uploads/anim-03.mp4",
           "poster": "/assets/uploads/anim-03.jpg",
           "alt_ru": "Девушка и кот",
