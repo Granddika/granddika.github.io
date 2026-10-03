@@ -44,15 +44,15 @@
       "album": [
         {
           "media_type": "video",
-          "media": "/assets/uploads/anim-02.mp4",
-          "poster": "/assets/uploads/anim-02.jpg",
+          "media": "/assets/uploads/anim-01.mp4",
+          "poster": "/assets/uploads/anim-01.jpg",
           "alt_ru": "Персик, серия 1",
           "alt_en": "Peach, episode 1"
         },
         {
           "media_type": "video",
-          "media": "/assets/uploads/anim-01.mp4",
-          "poster": "/assets/uploads/anim-01.jpg",
+          "media": "/assets/uploads/anim-02.mp4",
+          "poster": "/assets/uploads/anim-02.jpg",
           "alt_ru": "Персик, серия 2",
           "alt_en": "Peach, episode 2"
         },
