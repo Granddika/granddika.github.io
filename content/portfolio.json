@@ -89,6 +89,20 @@
         },
         {
           "media_type": "video",
+          "media": "/assets/uploads/anim-04.mp4",
+          "poster": "/assets/uploads/anim-04.jpg",
+          "alt_ru": "Фэнтези-история, часть 1",
+          "alt_en": "Fantasy story, part 1"
+        },
+        {
+          "media_type": "video",
+          "media": "/assets/uploads/anim-05.mp4",
+          "poster": "/assets/uploads/anim-05.jpg",
+          "alt_ru": "Фэнтези-история, часть 2",
+          "alt_en": "Fantasy story, part 2"
+        },
+        {
+          "media_type": "video",
           "media": "/assets/uploads/anim-03.mp4",
           "poster": "/assets/uploads/anim-03.jpg",
           "alt_ru": "Девушка и кот",
@@ -159,6 +173,11 @@
           "media_type": "video",
           "media": "/assets/uploads/viral-10.mp4",
           "poster": "/assets/uploads/viral-10.jpg"
+        },
+        {
+          "media_type": "video",
+          "media": "/assets/uploads/viral-11.mp4",
+          "poster": "/assets/uploads/viral-11.jpg"
         }
       ]
     },
