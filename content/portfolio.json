@@ -17,7 +17,7 @@
     {
       "size": "standard",
       "meta_en": "snippets · music videos · lip-sync",
-      "media": "/assets/media/project-02.jpg",
+      "media": "/assets/uploads/clips-cover.jpg",
       "title_ru": "Клипы и сниппеты",
       "published": true,
       "title_en": "Music videos & snippets",
@@ -148,7 +148,7 @@
     {
       "size": "standard",
       "meta_en": "portraits · looks",
-      "media": "/assets/media/project-06.jpg",
+      "media": "/assets/uploads/photo-cover.jpg",
       "title_ru": "Нейрофотосессии",
       "published": true,
       "title_en": "AI photoshoots",
