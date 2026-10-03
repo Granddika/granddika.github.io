@@ -2,17 +2,33 @@
   "projects": [
     {
       "size": "large",
-      "meta_en": "premiere soon",
-      "media": "/assets/media/project-01.jpg",
+      "meta_en": "episodes 1–2",
+      "media": "/assets/uploads/series-cover.jpg",
       "title_ru": "Мини-сериал",
       "published": true,
       "title_en": "Mini-series",
       "media_type": "image",
       "alt_ru": "Кадр из мини-сериала",
       "id": "mini-series",
-      "meta_ru": "премьера скоро",
+      "meta_ru": "серии 1–2",
       "category": "animation",
-      "alt_en": "Mini-series still"
+      "alt_en": "Mini-series still",
+      "album": [
+        {
+          "media_type": "video",
+          "media": "/assets/uploads/series-01.mp4",
+          "poster": "/assets/uploads/series-01.jpg",
+          "alt_ru": "Мини-сериал, серия 1",
+          "alt_en": "Mini-series, episode 1"
+        },
+        {
+          "media_type": "video",
+          "media": "/assets/uploads/series-02.mp4",
+          "poster": "/assets/uploads/series-02.jpg",
+          "alt_ru": "Мини-сериал, серия 2",
+          "alt_en": "Mini-series, episode 2"
+        }
+      ]
     },
     {
       "size": "standard",
@@ -31,7 +47,7 @@
     {
       "size": "standard",
       "meta_en": "animated films · mini-series",
-      "media": "/assets/media/project-04.jpg",
+      "media": "/assets/uploads/anim-cover.jpg",
       "title_ru": "Мультфильмы и сериалы",
       "published": true,
       "title_en": "Animation & series",
@@ -40,7 +56,30 @@
       "id": "animation",
       "meta_ru": "мультфильмы · мини-сериалы",
       "category": "animation",
-      "alt_en": "Animation & series"
+      "alt_en": "Animation & series",
+      "album": [
+        {
+          "media_type": "video",
+          "media": "/assets/uploads/anim-01.mp4",
+          "poster": "/assets/uploads/anim-01.jpg",
+          "alt_ru": "Персик, серия 1",
+          "alt_en": "Peach, episode 1"
+        },
+        {
+          "media_type": "video",
+          "media": "/assets/uploads/anim-02.mp4",
+          "poster": "/assets/uploads/anim-02.jpg",
+          "alt_ru": "Персик, серия 2",
+          "alt_en": "Peach, episode 2"
+        },
+        {
+          "media_type": "video",
+          "media": "/assets/uploads/anim-03.mp4",
+          "poster": "/assets/uploads/anim-03.jpg",
+          "alt_ru": "Девушка и кот",
+          "alt_en": "The girl and the cat"
+        }
+      ]
     },
     {
       "size": "standard",
