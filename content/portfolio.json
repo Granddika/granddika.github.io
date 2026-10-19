@@ -114,6 +114,27 @@
           "poster": "/assets/uploads/anim-03.jpg",
           "alt_ru": "Девушка и кот",
           "alt_en": "The girl and the cat"
+        },
+        {
+          "media_type": "video",
+          "media": "/assets/uploads/anim-07.mp4",
+          "poster": "/assets/uploads/anim-07.jpg",
+          "alt_ru": "Кровавая Императрица — тизер 2",
+          "alt_en": "The Crimson Empress — teaser 2"
+        },
+        {
+          "media_type": "video",
+          "media": "/assets/uploads/anim-08.mp4",
+          "poster": "/assets/uploads/anim-08.jpg",
+          "alt_ru": "Кровавая Императрица — часть 1",
+          "alt_en": "The Crimson Empress — Part I"
+        },
+        {
+          "media_type": "video",
+          "media": "/assets/uploads/anim-09.mp4",
+          "poster": "/assets/uploads/anim-09.jpg",
+          "alt_ru": "Кровавая Императрица — часть 2: Падение Аурелии",
+          "alt_en": "The Crimson Empress — Part II: The Fall of Aurelia"
         }
       ]
     },
