@@ -209,11 +209,6 @@
         },
         {
           "media_type": "video",
-          "media": "/assets/uploads/viral-12.mp4",
-          "poster": "/assets/uploads/viral-12.jpg"
-        },
-        {
-          "media_type": "video",
           "media": "/assets/uploads/viral-13.mp4",
           "poster": "/assets/uploads/viral-13.jpg"
         },
