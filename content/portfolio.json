@@ -221,6 +221,11 @@
           "media_type": "video",
           "media": "/assets/uploads/viral-15.mp4",
           "poster": "/assets/uploads/viral-15.jpg"
+        },
+        {
+          "media_type": "video",
+          "media": "/assets/uploads/viral-16.mp4",
+          "poster": "/assets/uploads/viral-16.jpg"
         }
       ]
     },
